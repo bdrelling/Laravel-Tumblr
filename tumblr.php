@@ -62,6 +62,19 @@ class Tumblr {
     }
 
     /**
+     * set the type of results to return
+     * 
+     * @param string type
+     * @return object
+     */
+    public function type($type)
+    {
+        $this->type = $type;
+        
+        return $this;
+    }
+
+    /**
      * clear the skip and take
      * 
      */
@@ -82,7 +95,10 @@ class Tumblr {
     {
     	$url = 'http://'. $this->username .'.tumblr.com/api/read/json';
 
-        if (isset($this->skip) && isset($this->take))
+        if (isset($this->skip) && isset($this->take) && isset($this->type))
+        {
+            $url .= '?start=' . $this->skip . '&num=' . $this->take . '&type=' . $this->type;
+        } else if (isset($this->skip) && isset($this->take))
         {
             $url .= '?start=' . $this->skip . '&num=' . $this->take;
         }
