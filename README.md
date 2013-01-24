@@ -55,6 +55,15 @@ In application/routes.php you can add a simple route to read and dump your tumbl
      */
      $tumblr = Tumblr\Tumblr::init('benedmunds')->skip(0)->limit(10);
 
+###type($type)
+	/**
+     * set the type of results to return
+     * 
+     * @param string type
+     * @return object
+     */
+     $tumblr = Tumblr\Tumblr::init('benedmunds')->skip(0)->limit(10)->type('regular');
+
 ###clear()
 	/**
      * Reset the skip and take
@@ -69,6 +78,7 @@ In application/routes.php you can add a simple route to read and dump your tumbl
      * @return integer number of posts
      */
      $tumblr = Tumblr\Tumblr::init('benedmunds')->skip(0)->limit(10)->all();
+     $tumblr = Tumblr\Tumblr::init('benedmunds')->skip(0)->limit(10)->type('regular')->all();
 
 ###count()
 	/**
